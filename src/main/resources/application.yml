@@ -1,0 +1,12 @@
+bot:
+  token: 6023868622:AAGz3vsK9Zmk4fWW3-jnU8J981fWBLKcTQ8
+  username: SasLog_bot
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/DB-Chat
+    username: postgres
+    password: Syncmaster
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
