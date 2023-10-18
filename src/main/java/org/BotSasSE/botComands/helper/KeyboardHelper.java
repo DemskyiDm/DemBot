@@ -4,7 +4,8 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-
+import java.util.List;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class KeyboardHelper {
         }
         rows.add(row);
 
-        KeyboardRow row2 = new KeyboardRow(List.of(new KeyboardButton(BTN_CANCEL)));
+        KeyboardRow row2 = new KeyboardRow();
+        row2.add(new KeyboardButton(BTN_CANCEL));
 
         rows.add(row2);
 
@@ -50,8 +52,11 @@ public class KeyboardHelper {
         }
         rows.add(row);
 
-        KeyboardRow row2 = new KeyboardRow(List.of(new KeyboardButton("Wyjść z systemu")));
-        KeyboardRow row3 = new KeyboardRow(List.of(new KeyboardButton(BTN_CANCEL)));
+        KeyboardRow row2 = new KeyboardRow();
+        row2.add(new KeyboardButton("Wyjść z systemu"));
+        KeyboardRow row3 = new KeyboardRow();
+        row2.add(new KeyboardButton(BTN_CANCEL));
+        rows.add(row3);
 
         rows.add(row2);
         rows.add(row3);

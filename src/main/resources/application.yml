@@ -1,12 +1,19 @@
 bot:
-  token: 6023868622:AAGz3vsK9Zmk4fWW3-jnU8J981fWBLKcTQ8
-  username: SasLog_bot
+  token: 6690948530:AAGr2EcgCeCkvoCFUhQO0iTjWXCi2MxLGtc
+  username: BotKolejnyBot
+# 6023868622:AAGz3vsK9Zmk4fWW3-jnU8J981fWBLKcTQ8
+#  /*SasLog_bot*/
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/DB-Chat
+    driver-class-name: org.postgresql.Driver
+    #url: jdbc:postgresql://google/DB-Chat?cloudSqlInstance=projectsas-402119:us-central1:db-chat
+    url: jdbc:postgresql://34.121.209.217:5432/
+    #url: jdbc:postgresql://google/DB-Chat?socketFactory=com.google.cloud.sql.postgres
+    #.SocketFactory&cloudSqlInstance=projectsas-402119:us-central1:db-chat
+    #url: jdbc:postgresql://127.0.0.1:5432/DB-Chat
     username: postgres
     password: Syncmaster
-    jpa:
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa:
+    properties:
       hibernate:
-        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect

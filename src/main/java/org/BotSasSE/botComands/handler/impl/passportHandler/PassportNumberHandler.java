@@ -46,8 +46,9 @@ public class PassportNumberHandler extends UserRequestHandler {
         ReplyKeyboardMarkup replyKeyboardMarkup = keyboardHelper.buildMenuWithCancel();
         UserSession session = userRequest.getUserSession();
         String passportNumber = userRequest.getUpdate().getMessage().getText().toUpperCase().replaceAll("\\s", "");
-
+        System.out.println("perszy" + passportNumber);
         if (userSearchService.searchUserByPassport(session.getPeselNumber()).equals("Error")) {
+            System.out.println("drugi" + userSearchService.searchUserByPassport(session.getPeselNumber()));
             telegramService.sendMessage(userRequest.getChatId(),
                     "✍️Wprowadż swój paszport. Twój paszport nie znaleziono w bazie dannych⤵️",
                     replyKeyboardMarkup);

@@ -27,11 +27,11 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.google.apis</groupId>
-            <artifactId>google-api-services-sheets</artifactId>
-            <version>v4-rev581-1.25.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.apis</groupId>-->
+<!--            <artifactId>google-api-services-sheets</artifactId>-->
+<!--            <version>v4-rev581-1.25.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -45,16 +45,18 @@
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20230618</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.cloud.sql</groupId>
+            <artifactId>postgres-socket-factory</artifactId>
+            <version>1.14.1</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
         <dependency>
@@ -77,43 +79,49 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-drive -->
-        <dependency>
-            <groupId>com.google.apis</groupId>
-            <artifactId>google-api-services-drive</artifactId>
-            <version>v3-rev197-1.25.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>6.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.telegram</groupId>
-            <artifactId>telegrambots</artifactId>
-            <version>${telegrambots.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-core</artifactId>
-            <version>2.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.oauth-client</groupId>
-            <artifactId>google-oauth-client-jetty</artifactId>
-            <version>1.31.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
+        <!--     <dependency>
+               <groupId>com.google.apis</groupId>
+               <artifactId>google-api-services-drive</artifactId>
+               <version>v3-rev197-1.25.0</version>
+           </dependency>
+          sadsa -->
+           <dependency>
+               <groupId>com.google.apis</groupId>
+               <artifactId>google-api-services-cloudresourcemanager</artifactId>
+               <version>v3-rev20230806-2.0.0</version>
+           </dependency>
+           <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-jdbc</artifactId>
+               <version>6.0.10</version>
+           </dependency>
+           <dependency>
+               <groupId>org.telegram</groupId>
+               <artifactId>telegrambots</artifactId>
+               <version>${telegrambots.version}</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.tika</groupId>
+               <artifactId>tika-core</artifactId>
+               <version>2.5.0</version>
+           </dependency>
+           <dependency>
+               <groupId>org.projectlombok</groupId>
+               <artifactId>lombok</artifactId>
+               <version>${lombok.version}</version>
+           </dependency>
+           <dependency>
+               <groupId>com.google.oauth-client</groupId>
+               <artifactId>google-oauth-client-jetty</artifactId>
+               <version>1.31.0</version>
+           </dependency>
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter</artifactId>
+               <version>${spring-boot.version}</version>
+           </dependency>
 
-        <!-- This starter will allow to auto-register your bot        -->
+           <!-- This starter will allow to auto-register your bot        -->
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots-spring-boot-starter</artifactId>
@@ -122,36 +130,36 @@
 
     </dependencies>
     <build>
-            <plugins>
-                <plugin>
-                    <groupId>com.google.cloud.tools</groupId>
-                    <artifactId>appengine-maven-plugin</artifactId>
-                    <version>2.4.4</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>3.0.6</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-               </plugin>
-            </plugins>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.4.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.9</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
 
         <defaultGoal>spring-boot:run</defaultGoal>
-<!--
-        <resources>
-            <resource>
-                <directory>src</directory>
-                <includes>
-                    <include>**/*.json</include>
-                </includes>
-            </resource>
-        </resources>-->
+        <!--
+                <resources>
+                    <resource>
+                        <directory>src</directory>
+                        <includes>
+                            <include>**/*.json</include>
+                        </includes>
+                    </resource>
+                </resources>-->
     </build>
 </project>

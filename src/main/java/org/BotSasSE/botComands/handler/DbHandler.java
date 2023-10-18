@@ -71,12 +71,12 @@ public class DbHandler {
     public String searchUserByPassport(String userPesel) {
 
         try {
-            String query = "SELECT passport_number FROM pracownicy WHERE employee_pesel = ?";
+            String query = "SELECT employee_passport_number FROM pracownicy WHERE employee_pesel = ?";
             Object[] params = new Object[]{userPesel};
             List<Map<String, Object>> results = jdbcTemplate.queryForList(query, params);
             if (!results.isEmpty()) {
                 Map<String, Object> result = results.get(0);
-                return (String) result.get("passport_number");
+                return (String) result.get("employee_passport_number");
             } else {
                 System.out.println("Blad");
                 return "Error";

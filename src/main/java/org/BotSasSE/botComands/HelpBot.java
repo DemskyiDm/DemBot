@@ -42,10 +42,10 @@ public class HelpBot extends TelegramLongPollingBot {
             Message message = update.getMessage();
             if (message.hasText()) {
                 textFromUser = message.getText();
-                // Обробити текстове повідомлення
+
             } else if (message.hasPhoto()) {
                 List<PhotoSize> photos = message.getPhoto();
-                // Обробити фото
+
             }
 
 
